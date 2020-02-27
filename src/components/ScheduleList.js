@@ -2,15 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdMoreHoriz } from 'react-icons/md';
 import ScheduleCard from './ScheduleCard';
-import CardInput from './CardInput';
-import ListInput from './ListInput';
+import CardInput from './AddCardButton';
+import AddListButton from './AddListButton';
 
 const ListBlock = styled.div`
   background: none;
   width: 272px;
   height: 850px;
   margin-right: 8px;
-  padding-top: 5.25rem;
+  margin-top: 84px;
 `;
 
 const List = styled.div`
@@ -24,7 +24,7 @@ const ListHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   background: none;
-  width: 100%;
+  width: 252px;
   height: 20px;
   font-size: 14px;
   color: #172b4d;
@@ -78,10 +78,10 @@ function ScheduleList({schedules}){
   return (
     <>
       {schedules.map(schedule => (
-        <ListBlock>
+        <ListBlock key={schedule.id} id={schedule.id}>
           <List>
-            <ListHeader>
-              <HeaderText key={schedule.id} id={schedule.id} >{schedule.title}</HeaderText>
+            <ListHeader  >
+              <HeaderText   >{schedule.title}</HeaderText>
               <HeaderMenu><MdMoreHoriz /></HeaderMenu>
             </ListHeader>
             <ScheduleCard cards={cards} />
@@ -89,7 +89,7 @@ function ScheduleList({schedules}){
           </List>
         </ListBlock>
       ))}
-      <ListInput />
+      <AddListButton />
     </>
   )
 }
