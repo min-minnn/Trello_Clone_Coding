@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 const Users = styled.div`
   display: flex;
@@ -12,6 +13,13 @@ const Users = styled.div`
   font-size: 10px;
   padding: 2px;
   cursor: pointer;
+
+  &:hover {
+    background: ${darken(0.1, '#dfe1e6')};
+  }
+  &:active {
+    background: ${darken(0.2, '#dfe1e6')};
+  }
 `;
 
 function TeamUser({users}){
