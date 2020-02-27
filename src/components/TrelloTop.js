@@ -3,9 +3,8 @@ import styled, {css} from 'styled-components';
 import { FiHome, FiSearch } from 'react-icons/fi';
 import { MdSettings, MdAdd } from 'react-icons/md';
 import { FaTrello, FaRegBell } from 'react-icons/fa';
-import TrelloDetail from './TrelloDetail';
 
-const Styles = css`
+const BaseStyles = css`
   background: #828f9a;
   outline: none;
   border: none;
@@ -27,17 +26,19 @@ const Styles = css`
 const TopBlock = styled.div`
   display: flex;
   align-content: center;
+  justify-content: space-between;
   background: #465f71;
   width: 1910px;
   height: 2rem;
   padding: 5px;
+  opacity: 0.7;
   position: fixed;
 `;
 
 const LeftBtnBlock = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 50%;
+  width: 450px;
 `;
 
 const TopButton = styled.button`
@@ -45,7 +46,7 @@ const TopButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  ${Styles}
+  ${BaseStyles}
   
   &:hover {
     background: #6d7d8a;
@@ -69,24 +70,30 @@ const Search = styled.button`
   outline: none;
   width: 10rem;
 
-  ${Styles}
+  ${BaseStyles}
   
   &:hover {
-      background: #8e9ba4;
+    background: #8e9ba4;
   }
 `;
 
-const LogoBlock = styled.div`
+const Logo = styled.img`
   display: flex;
-  align-items: center;
-  color: #ffffff;
+  align-content: center;
   font-size: 25px;
+  width: 80px;
+  height: 30px;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const RightBtnBlock = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  width: 50%;
+  width: 450px;
 `;
 
 const User = styled.div`
@@ -97,32 +104,29 @@ const User = styled.div`
   border-radius: 50%;
   color: #172B4D;
   width: 2rem;
-  height: 100%;
+  height: 2rem;
   margin-right: 5px;
   cursor: pointer;
 `;
 
 function TrelloTop(){
   return(
-    <>
-      <TopBlock>
-        <LeftBtnBlock>
-          <TopButton><FiHome /></TopButton>
-          <TopButton>
-            <FaTrello /><TextBlock>Boards</TextBlock>
-          </TopButton> 
-          <Search><FiSearch /></Search>
-        </LeftBtnBlock>
-        <LogoBlock><FaTrello /></LogoBlock>
-        <RightBtnBlock>
-          <TopButton><MdSettings /></TopButton>
-          <User>김</User>
-          <TopButton><FaRegBell /></TopButton>
-          <TopButton><MdAdd /></TopButton>
-        </RightBtnBlock>
-      </TopBlock>
-      <TrelloDetail />
-    </>
+    <TopBlock>
+      <LeftBtnBlock>
+        <TopButton><FiHome /></TopButton>
+        <TopButton>
+          <FaTrello /><TextBlock>Boards</TextBlock>
+        </TopButton> 
+        <Search><FiSearch /></Search>
+      </LeftBtnBlock>
+      <Logo src="https://a.trellocdn.com/prgb/dist/images/header-logo-2x.01ef898811a879595cea.png" />
+      <RightBtnBlock>
+        <TopButton><MdSettings /></TopButton>
+        <User>김</User>
+        <TopButton><FaRegBell /></TopButton>
+        <TopButton><MdAdd /></TopButton>
+      </RightBtnBlock>
+    </TopBlock>
   )
 }
 
