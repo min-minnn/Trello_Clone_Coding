@@ -12,23 +12,23 @@ const ScheduleBlock = styled.div`
 
 function TrelloSchedule(){
   const schedules = [
-    {
-      id: 1,
-      title: 'Reminder'
-    },
-    {
-      id: 2,
-      title: 'Tasking Space(All)'
-    },
-    {
-      id: 3,
-      title: 'Task_Design'
-    },
-    {
-      id: 4,
-      title: 'Task_Frontend'
-    }
-  ]
+  {
+    id: 1,
+    title: 'Reminder'
+  },
+  {
+    id: 2,
+    title: 'Tasking Space(All)'
+  },
+  {
+    id: 3,
+    title: 'Task_Design'
+  },
+  {
+    id: 4,
+    title: 'Task_Frontend'
+  }
+]
 
   return (
     <ScheduleBlock>
