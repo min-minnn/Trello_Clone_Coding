@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
+import { darken } from 'polished';
 import { FiStar, FiUsers } from 'react-icons/fi';
 import { FaSlack } from 'react-icons/fa';
 import { MdMoreHoriz } from 'react-icons/md';
@@ -22,19 +23,18 @@ const Styles = css`
   }
   
   & + & {
-      margin-left: 5px;
+    margin-left: 5px;
   }
 `;
 
 const DetailBlock = styled.div`
   display: flex;
   justify-content: space-between;
-  background: hsla(0,0%,100%,0.1);
-  width: 100%;
+  width: 1910px;
   height: 2rem;
   padding: 5px;
-  margin-top: 42px;
   position: fixed;
+  margin-top: 42px;
 `;
 
 const LeftBtnBlock = styled.div`
@@ -48,7 +48,6 @@ const RightBtnBlock = styled.div`
   justify-content: flex-end;
   align-content: center;
   align-items: center;
-  margin-right: 15px;
 `;
 
 const TeamNameBlock = styled.div`
@@ -69,10 +68,10 @@ const DetailButton = styled.button`
   ${Styles}
 
   &:hover {
-    background: #8798a5;
+    background: ${darken(0.1, '#a5b6c0')};
   }
   &:active {
-    background: #637683;
+    background: ${darken(0.2, '#a5b6c0')};
   }
 `;
 
@@ -91,7 +90,7 @@ const TextBlock = styled.div`
 `;
 
 const FreeBlock = styled.div`
-  background: #869caa;
+  background: #869ca1;
   color: #273c5a;
   margin-left: 8px;
   margin-right: 8px;
@@ -112,31 +111,43 @@ const CountUser = styled.div`
   height: 20px;
   font-size: 13px;
   margin-right: 10px;
+
+  &:hover {
+    background: ${darken(0.1, '#869caa')};
+  }
+  &:active {
+    background: ${darken(0.2, '#869caa')};
+  }
+`;
+
+const ButlerIcon = styled.img`
+  height: 15px;
+  margin-right: 5px;
 `;
 
 function TrelloDetail(){
-    const users = [
-        {
-          id: 1,
-          name: '김',
-        },
-        {
-          id: 2,
-          name: 'WOO',
-        },
-        {
-          id: 3,
-          name: 'P',
-        },
-        {
-          id: 4,
-          name: 'S',
-        },
-        {
-          id: 5,
-          name: '강민',
-        }
-      ]
+  const users = [
+    {
+      id: 1,
+      name: '김',
+    },
+    {
+      id: 2,
+      name: 'WOO',
+    },
+    {
+      id: 3,
+      name: 'P',
+    },
+    {
+      id: 4,
+      name: 'S',
+    },
+    {
+      id: 5,
+      name: '강민',
+    }
+  ]
 
   return(
     <DetailBlock>
@@ -159,9 +170,18 @@ function TrelloDetail(){
         <DetailButton><TextBlock>Invite</TextBlock></DetailButton>
       </LeftBtnBlock>
       <RightBtnBlock>
-        <DetailButton><TextBlock>Butler</TextBlock></DetailButton>
-        <DetailButton><FaSlack /><TextBlock>Slack</TextBlock></DetailButton>
-        <DetailButton><MdMoreHoriz /><TextBlock>Show Menu</TextBlock></DetailButton>
+        <DetailButton>
+          <TextBlock>
+            <ButlerIcon src="https://app.butlerfortrello.com/master-201/img/butler-powerup-btn-dark.svg" />
+            Butler
+          </TextBlock>
+        </DetailButton>
+        <DetailButton>
+          <FaSlack /><TextBlock>Slack</TextBlock>
+        </DetailButton>
+        <DetailButton>
+          <MdMoreHoriz /><TextBlock>Show Menu</TextBlock>
+        </DetailButton>
       </RightBtnBlock>
     </DetailBlock>
   )
