@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { darken } from 'polished';
+import React from "react";
+import styled from "styled-components";
+import { darken } from "polished";
 
 const Users = styled.div`
   display: flex;
@@ -8,28 +8,30 @@ const Users = styled.div`
   align-items: center;
   background: #dfe1e6;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  font-size: 10px;
-  padding: 2px;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.625rem;
+  padding: 0.125rem;
   cursor: pointer;
 
   &:hover {
-    background: ${darken(0.1, '#dfe1e6')};
+    background: ${darken(0.1, "#dfe1e6")};
   }
   &:active {
-    background: ${darken(0.2, '#dfe1e6')};
+    background: ${darken(0.2, "#dfe1e6")};
   }
 `;
 
-function TeamUser({users}){
-  return(
+function TeamUser({ users }) {
+  return (
     <>
       {users.map(user => (
-        <Users key={user.id} id={user.id}>{user.name}</Users>
+        <Users key={user.id} id={user.id}>
+          {user.name}
+        </Users>
       ))}
     </>
-  )
+  );
 }
 
 export default TeamUser;

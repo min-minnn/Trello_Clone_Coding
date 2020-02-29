@@ -1,40 +1,19 @@
-import React from 'react';
-import styled, {css} from 'styled-components';
-import { darken } from 'polished';
-import { FiStar, FiUsers } from 'react-icons/fi';
-import { FaSlack } from 'react-icons/fa';
-import { MdMoreHoriz } from 'react-icons/md';
-import TeamUser from './TeamUser';
-
-const Styles = css`
-  background: #a5b6c0;
-  outline: none;
-  border:none;
-  border-radius: 3px;
-  color: #4a5a79;
-  font-size: 15px;
-
-  height: 2rem;
-
-  svg {
-    padding-left: 2px;
-    padding-right: 2px;
-    cursor: pointer;
-  }
-  
-  & + & {
-    margin-left: 5px;
-  }
-`;
+import React from "react";
+import styled from "styled-components";
+import { darken } from "polished";
+import { FiStar, FiUsers } from "react-icons/fi";
+import { FaSlack } from "react-icons/fa";
+import { MdMoreHoriz } from "react-icons/md";
+import TeamUser from "./TeamUser";
 
 const DetailBlock = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 1910px;
+  width: 100%;
   height: 2rem;
   padding: 5px;
   position: fixed;
-  margin-top: 42px;
+  margin-top: 2.625rem;
 `;
 
 const LeftBtnBlock = styled.div`
@@ -48,16 +27,20 @@ const RightBtnBlock = styled.div`
   justify-content: flex-end;
   align-content: center;
   align-items: center;
+
+  margin-right: 0.5rem;
 `;
 
 const TeamNameBlock = styled.div`
   display: flex;
-  background: none;
+
   color: #1b2b4a;
-  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: bold;
+
   padding: 3px;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 0.625rem;
+  margin-left: 0.625rem;
 `;
 
 const DetailButton = styled.button`
@@ -65,21 +48,38 @@ const DetailButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  ${Styles}
+  background: #a5b6c0;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  color: #4a5a79;
+  font-size: 15px;
+
+  height: 2rem;
+
+  svg {
+    padding-left: 0.125rem;
+    padding-right: 0.125rem;
+    cursor: pointer;
+  }
+
+  & + & {
+    margin-left: 5px;
+  }
 
   &:hover {
-    background: ${darken(0.1, '#a5b6c0')};
+    background: ${darken(0.1, "#a5b6c0")};
   }
   &:active {
-    background: ${darken(0.2, '#a5b6c0')};
+    background: ${darken(0.2, "#a5b6c0")};
   }
 `;
 
 const Divider = styled.div`
   border-right: 1px solid #778593;
   height: 1rem;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 `;
 
 const TextBlock = styled.div`
@@ -92,11 +92,11 @@ const TextBlock = styled.div`
 const FreeBlock = styled.div`
   background: #869ca1;
   color: #273c5a;
-  margin-left: 8px;
-  margin-right: 8px;
-  border-radius: 12px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 0.75rem;
   font-size: 13px;
-  padding: 2px 6px;
+  padding: 0.125rem 0.375rem;
 `;
 
 const CountUser = styled.div`
@@ -104,19 +104,19 @@ const CountUser = styled.div`
   justify-content: center;
   background: #869caa;
   color: #273c5a;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   padding: 3px;
   padding-left: 5px;
   padding-right: 5px;
-  height: 20px;
+  height: 1.25rem;
   font-size: 13px;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 
   &:hover {
-    background: ${darken(0.1, '#869caa')};
+    background: ${darken(0.1, "#869caa")};
   }
   &:active {
-    background: ${darken(0.2, '#869caa')};
+    background: ${darken(0.2, "#869caa")};
   }
 `;
 
@@ -125,35 +125,37 @@ const ButlerIcon = styled.img`
   margin-right: 5px;
 `;
 
-function TrelloDetail(){
+function BoardHeader() {
   const users = [
     {
       id: 1,
-      name: '김',
+      name: "김"
     },
     {
       id: 2,
-      name: 'WOO',
+      name: "WOO"
     },
     {
       id: 3,
-      name: 'P',
+      name: "P"
     },
     {
       id: 4,
-      name: 'S',
+      name: "S"
     },
     {
       id: 5,
-      name: '강민',
+      name: "강민"
     }
-  ]
+  ];
 
-  return(
+  return (
     <DetailBlock>
       <LeftBtnBlock>
         <TeamNameBlock>Hanlight_V2</TeamNameBlock>
-        <DetailButton><FiStar /></DetailButton>
+        <DetailButton>
+          <FiStar />
+        </DetailButton>
         <Divider />
         <DetailButton>
           <TextBlock>
@@ -162,12 +164,15 @@ function TrelloDetail(){
         </DetailButton>
         <Divider />
         <DetailButton>
-          <FiUsers /><TextBlock>Team Visible</TextBlock>
+          <FiUsers />
+          <TextBlock>Team Visible</TextBlock>
         </DetailButton>
         <Divider />
         <TeamUser users={users} />
         <CountUser>+12</CountUser>
-        <DetailButton><TextBlock>Invite</TextBlock></DetailButton>
+        <DetailButton>
+          <TextBlock>Invite</TextBlock>
+        </DetailButton>
       </LeftBtnBlock>
       <RightBtnBlock>
         <DetailButton>
@@ -177,14 +182,16 @@ function TrelloDetail(){
           </TextBlock>
         </DetailButton>
         <DetailButton>
-          <FaSlack /><TextBlock>Slack</TextBlock>
+          <FaSlack />
+          <TextBlock>Slack</TextBlock>
         </DetailButton>
         <DetailButton>
-          <MdMoreHoriz /><TextBlock>Show Menu</TextBlock>
+          <MdMoreHoriz />
+          <TextBlock>Show Menu</TextBlock>
         </DetailButton>
       </RightBtnBlock>
     </DetailBlock>
-  )
+  );
 }
 
-export default TrelloDetail;
+export default BoardHeader;

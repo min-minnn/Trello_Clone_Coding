@@ -1,13 +1,13 @@
-import React from 'react';
-import TrelloTop from './components/TrelloTop';
-import TrelloDetail from './components/TrelloDetail';
-import TrelloSchedule from './components/TrelloSchedule';
+import React from "react";
+import Header from "./components/Header";
+import BoardHeader from "./components/BoardHeader";
+import TrelloSchedule from "./components/TrelloSchedule";
 
 function App() {
   return (
     <>
-      <TrelloTop />
-      <TrelloDetail />
+      <Header />
+      <BoardHeader />
       <TrelloSchedule />
     </>
   );

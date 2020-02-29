@@ -1,22 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-import { MdMoreHoriz } from 'react-icons/md';
-import ScheduleCard from './ScheduleCard';
-import CardInput from './AddCardButton';
-import AddListButton from './AddListButton';
+import React from "react";
+import styled from "styled-components";
+import { MdMoreHoriz } from "react-icons/md";
+import ScheduleCardItem from "./ScheduleCardItem";
+import CardInput from "./AddCardButton";
 
 const ListBlock = styled.div`
   background: none;
-  width: 272px;
-  height: 850px;
-  margin-right: 8px;
-  margin-top: 84px;
+  width: 17rem;
+  height: 53.125rem;
+  margin-right: 0.5rem;
+  margin-top: 5.25rem;
 `;
 
 const List = styled.div`
   background: #ebecf0;
   border-radius: 3px;
-  padding: 10px;
+  padding: 0.625rem;
 `;
 
 const ListHeader = styled.div`
@@ -24,74 +23,48 @@ const ListHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   background: none;
-  width: 252px;
-  height: 20px;
-  font-size: 14px;
+  width: 15.75rem;
+  height: 1.25rem;
+  font-size: 0.875rem;
   color: #172b4d;
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
 `;
 
 const HeaderText = styled.div`
   display: inline;
-  margin-left: 8px;
+  margin-left: 0.5rem;
+  font-weight: bold;
 `;
 
 const HeaderMenu = styled.div`
   float: right;
-  margin-right: 4px;
+  margin-right: 0.25rem;
 `;
 
-function ScheduleList({schedules}){
-  const cards = [
-    {
-      id: 1,
-      value: 'To do',
-      text: '한빛에 졸업식 영상 게시',
-      title: 'Reminder'
-    },
-    {
-      id: 2,
-      value: 'To do',
-      text: '자료 수집',
-      title: 'Reminder'
-    },
-    {
-      id: 3,
-      value: 'Complete',
-      text: '당일 시간표 수정',
-      title: 'Tasking Space(All)'
-    },
-    {
-      id: 4,
-      value: 'Progress',
-      text: '한빛 뮤직',
-      title: 'Tasking Space(All)'
-    },
-    {
-      id: 5,
-      value: 'To do',
-      text: '재원이 협업',
-      title: 'Tasking Space(All)'
-    }
-  ]
+const ListCards = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+function ScheduleList({ task, title }) {
+  const cardList = task.map(item => (
+    <ScheduleCardItem key={item.id} card={item} />
+  ));
 
   return (
-    <>
-      {schedules.map(schedule => (
-        <ListBlock key={schedule.id} id={schedule.id}>
-          <List>
-            <ListHeader  >
-              <HeaderText   >{schedule.title}</HeaderText>
-              <HeaderMenu><MdMoreHoriz /></HeaderMenu>
-            </ListHeader>
-            <ScheduleCard cards={cards} />
-            <CardInput />
-          </List>
-        </ListBlock>
-      ))}
-      <AddListButton />
-    </>
-  )
+    <ListBlock>
+      <List>
+        <ListHeader>
+          <HeaderText>{title}</HeaderText>
+          <HeaderMenu>
+            <MdMoreHoriz />
+          </HeaderMenu>
+        </ListHeader>
+        <ListCards>{cardList}</ListCards>
+        <CardInput />
+      </List>
+    </ListBlock>
+  );
 }
 
 export default ScheduleList;

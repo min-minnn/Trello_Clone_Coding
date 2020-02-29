@@ -1,8 +1,8 @@
-import React from 'react'
-import styled, {css} from 'styled-components';
-import { FiHome, FiSearch } from 'react-icons/fi';
-import { MdSettings, MdAdd } from 'react-icons/md';
-import { FaTrello, FaRegBell } from 'react-icons/fa';
+import React from "react";
+import styled, { css } from "styled-components";
+import { FiHome, FiSearch } from "react-icons/fi";
+import { MdSettings, MdAdd } from "react-icons/md";
+import { FaTrello, FaRegBell } from "react-icons/fa";
 
 const BaseStyles = css`
   background: #828f9a;
@@ -11,24 +11,24 @@ const BaseStyles = css`
   border-radius: 3px;
   color: #f9f9fa;
   font-size: 15px;
-  
+
   margin-right: 5px;
 
   height: 2rem;
- 
+
   svg {
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 0.125rem;
+    padding-right: 0.125rem;
     cursor: pointer;
   }
 `;
 
 const TopBlock = styled.div`
+  width: 100%;
   display: flex;
   align-content: center;
   justify-content: space-between;
   background: #465f71;
-  width: 1910px;
   height: 2rem;
   padding: 5px;
   opacity: 0.7;
@@ -38,7 +38,6 @@ const TopBlock = styled.div`
 const LeftBtnBlock = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 450px;
 `;
 
 const TopButton = styled.button`
@@ -47,7 +46,7 @@ const TopButton = styled.button`
   align-items: center;
 
   ${BaseStyles}
-  
+
   &:hover {
     background: #6d7d8a;
   }
@@ -61,7 +60,7 @@ const TextBlock = styled.div`
   padding-right: 3px;
 `;
 
-const Search = styled.button` 
+const Search = styled.button`
   display: flex;
   justify-content: flex-end;
   cursor: text;
@@ -71,7 +70,7 @@ const Search = styled.button`
   width: 10rem;
 
   ${BaseStyles}
-  
+
   &:hover {
     background: #8e9ba4;
   }
@@ -81,9 +80,11 @@ const Logo = styled.img`
   display: flex;
   align-content: center;
   font-size: 25px;
-  width: 80px;
-  height: 30px;
+  width: 5rem;
+  height: 1.875rem;
   opacity: 0.7;
+  position: absolute;
+  left: 50%;
 
   &:hover {
     opacity: 1;
@@ -93,41 +94,52 @@ const Logo = styled.img`
 const RightBtnBlock = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  width: 450px;
+  margin-right: 0.25rem;
 `;
 
 const User = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #DFE1E6;
+  background: #dfe1e6;
   border-radius: 50%;
-  color: #172B4D;
+  color: #172b4d;
   width: 2rem;
   height: 2rem;
   margin-right: 5px;
   cursor: pointer;
 `;
 
-function TrelloTop(){
-  return(
+function TrelloTop() {
+  return (
     <TopBlock>
       <LeftBtnBlock>
-        <TopButton><FiHome /></TopButton>
         <TopButton>
-          <FaTrello /><TextBlock>Boards</TextBlock>
-        </TopButton> 
-        <Search><FiSearch /></Search>
+          <FiHome />
+        </TopButton>
+        <TopButton>
+          <FaTrello />
+          <TextBlock>Boards</TextBlock>
+        </TopButton>
+        <Search>
+          <FiSearch />
+        </Search>
       </LeftBtnBlock>
       <Logo src="https://a.trellocdn.com/prgb/dist/images/header-logo-2x.01ef898811a879595cea.png" />
       <RightBtnBlock>
-        <TopButton><MdSettings /></TopButton>
+        <TopButton>
+          <MdSettings />
+        </TopButton>
         <User>김</User>
-        <TopButton><FaRegBell /></TopButton>
-        <TopButton><MdAdd /></TopButton>
+        <TopButton>
+          <FaRegBell />
+        </TopButton>
+        <TopButton>
+          <MdAdd />
+        </TopButton>
       </RightBtnBlock>
     </TopBlock>
-  )
+  );
 }
 
 export default TrelloTop;
